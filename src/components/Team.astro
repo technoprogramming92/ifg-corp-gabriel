@@ -1,3 +1,66 @@
+<head>
+    <style>
+        /* Flex row container for the team profile content */
+.flex-row-custom {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* Profile picture container */
+.profile-pic {
+  flex: 0 0 auto;
+  width: 200px;  /* Adjust width as needed */
+}
+
+.profile-pic img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Profile text container takes remaining width */
+.profile-text {
+  flex: 1;
+  text-align: left;
+}
+
+/* Desktop styles can be further refined with your existing CSS */
+
+/* Responsive Styles for Tablets and Mobile */
+@media screen and (max-width: 768px) {
+  .flex-row-custom {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile-text {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .flex-row-custom {
+    gap: 16px;
+    padding: 16px 0;
+  }
+  .profile-pic {
+    width: 150px;
+  }
+  .profile-text h6 {
+    font-size: 18px;
+  }
+  .profile-text p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+    </style>
+</head>
 <div class="team section-padding bg-color">
     <div class="container">
         <div class="row">
@@ -7,81 +70,20 @@
                 <p class="mb-45">We are extremely proud of our team of talented developers and digital marketers who are highly motivated to provide a professional and reliable service to all of our clients.</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 owl-carousel owl-theme">
-                <div class="item">
-                    <div class="img"> <img src="img/team/1.jpg" alt=""> </div>
-                    <div class="info">
-                        <h6>Enrico Brown</h6>
-                        <p>Back-End Developer</p>
-                        <div class="social valign">
-                            <div class="full-width">
-                                <p>PHP, WordPress, eCommerce</p> <a href="#"><i class="ti-facebook"></i></a> <a href="#"><i class="ti-twitter-alt"></i></a> <a href="#"><i class="ti-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img"> <img src="img/team/2.jpg" alt=""> </div>
-                    <div class="info">
-                        <h6>Elisa White</h6>
-                        <p>Graphic Designer</p>
-                        <div class="social valign">
-                            <div class="full-width">
-                                <p>Photoshop, Illustrator, Sketch</p> <a href="#"><i class="ti-facebook"></i></a> <a href="#"><i class="ti-twitter-alt"></i></a> <a href="#"><i class="ti-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img"> <img src="img/team/3.jpg" alt=""> </div>
-                    <div class="info">
-                        <h6>Martin Dan</h6>
-                        <p>Front-End Developer</p>
-                        <div class="social valign">
-                            <div class="full-width">
-                                <p>HTML, CSS, Javascript</p> <a href="#"><i class="ti-facebook"></i></a> <a href="#"><i class="ti-twitter-alt"></i></a> <a href="#"><i class="ti-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img"> <img src="img/team/4.jpg" alt=""> </div>
-                    <div class="info">
-                        <h6>Jesica Duru</h6>
-                        <p>Web Design</p>
-                        <div class="social valign">
-                            <div class="full-width">
-                                <p>Photoshop, HTML, CSS</p> <a href="#"><i class="ti-facebook"></i></a> <a href="#"><i class="ti-twitter-alt"></i></a> <a href="#"><i class="ti-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img"> <img src="img/team/5.jpg" alt=""> </div>
-                    <div class="info">
-                        <h6>Olivia Brown</h6>
-                        <p>Social Media</p>
-                        <div class="social valign">
-                            <div class="full-width">
-                                <p>Twitter, Writing, Presenting</p> <a href="#"><i class="ti-facebook"></i></a> <a href="#"><i class="ti-twitter-alt"></i></a> <a href="#"><i class="ti-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img"> <img src="img/team/6.jpg" alt=""> </div>
-                    <div class="info">
-                        <h6>Emile White</h6>
-                        <p>I.T. Support Engineer</p>
-                        <div class="social valign">
-                            <div class="full-width">
-                                <p>I.T. Support, Telecommunications</p> <a href="#"><i class="ti-facebook"></i></a> <a href="#"><i class="ti-twitter-alt"></i></a> <a href="#"><i class="ti-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="flex-row-custom">
+            <div class="profile-pic">
+              <img src="img/team/profile-pic.avif" alt="Gabriel Ilyayeff Profile">
             </div>
-        </div>
+            <div class="profile-text">
+              <h6>Gabriel Ilyayeff</h6>
+              <p><strong>Founder &amp; CEO</strong></p>
+              <p>
+                At IFG Corporate Accounting Services, we believe in the value of relationships and in building lasting partnerships with the clients we serve. We work collaboratively with our clients to achieve their goals, helping them navigate the complexities of today’s regulatory and accounting landscape so that their businesses and organizations can thrive and grow.
+              </p>
+              <p>
+                Our professional team brings years of advanced training, technical, and financial experience to every collaboration, ensuring that our dedication to professionalism, responsiveness, and quality translates into outstanding service for our clients.
+              </p>
+            </div>
+          </div>          
     </div>
 </div>
