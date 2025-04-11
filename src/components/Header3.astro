@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <!-- Logo Row -->
+      <a class="logo" href="/"> 
+        <img src="img/logo-light.png" alt="">
+      </a>
+      <!-- Navbar toggler (for mobile) -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="icon-bar"><i class="ti-line-double"></i></span>
+      </button>
+      <!-- Navbar links Row -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+          <li class="nav-item dropdown">
+            <span class="nav-link">Practice Areas<i class="ti-angle-down"></i></span>
+            <ul class="dropdown-menu last">
+              <li class="dropdown-item"><a href="/book-keeping">Book Keeping</a></li>
+              <li class="dropdown-item"><a href="/cfo-services">CFO Services</a></li>
+              <li class="dropdown-item"><a href="/tax-services">Tax Services</a></li>
+              <li class="dropdown-item"><a href="/payroll">Payroll</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/#vision">Our Vision</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#ourleadership">Our Leadership</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#industries">Industries Served</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/#map">Map</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <style>
+    /* Internal CSS to arrange the logo and nav links in two rows */
+    .navbar .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* Logo row: center the logo and add spacing at the bottom */
+    .navbar .logo {
+      margin-bottom: 10px;
+    }
+    /* Navbar collapse (the nav links) should span full width and be centered */
+    .navbar-collapse {
+      width: 100%;
+      display: flex !important;
+      justify-content: center;
+    }
+    /* Ensure nav items display in a row and centered */
+    .navbar-nav {
+      flex-direction: row;
+      justify-content: center;
+    }
+  </style>
+  

@@ -34,8 +34,8 @@
  
 ----------------------------------------------------------------------------------- */
 
-/* ======= Google fonts (Oswald & Didact Gothic) ======= */
-@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&amp;family=Oswald:wght@200;300;400;500;600;700&amp;display=swap");
+/* ======= Google fonts (Oswald & EB Garamond) ======= */
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
 
 /* ======= Basic style ======= */
 html,
@@ -55,7 +55,7 @@ body {
   word-wrap: break-word;
 }
 body {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "EB Garamond", serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.75em;
@@ -64,7 +64,7 @@ body {
   background: #fff;
 }
 p {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "EB Garamond", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.75em;
@@ -155,7 +155,7 @@ textarea {
   display: block;
   width: 100%;
   line-height: 1.5em;
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "EB Garamond", sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #888;
@@ -265,7 +265,7 @@ input[type="checkbox"] {
   font-weight: 600;
 }
 .count {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "EB Garamond", sans-serif;
 }
 .valign {
   display: -webkit-box;
@@ -415,9 +415,9 @@ input[type="checkbox"] {
   padding: 120px 0;
 }
 
-#contact{
-  padding-top:120px !important;
-  padding-bottom:10px !important;
+#contact {
+  padding-top: 120px !important;
+  padding-bottom: 10px !important;
 }
 .section-title {
   font-size: 50px;
@@ -499,9 +499,9 @@ input[type="checkbox"] {
   color: #284f6e;
 }
 .navbar .navbar-nav .nav-link {
-  font-family: "Oswald", sans-serif;
+  font-family: "EB Garamond", sans-serif;
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 500;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -513,10 +513,10 @@ input[type="checkbox"] {
   color: #1b1b1b;
 }
 .navbar .navbar-nav .nav-link:hover {
-  color: #284f6e;
+  color: #fca311;
 }
 .navbar .navbar-nav .active {
-  color: #284f6e !important;
+  color: #fca311 !important;
 }
 
 .navbar2 {
@@ -706,7 +706,7 @@ input[type="checkbox"] {
 .dropdown-menu .dropdown-item,
 .sub-menu .dropdown-item {
   padding: 5px 15px;
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "EB Garamond", sans-serif;
   font-size: 15px;
   font-weight: 300;
   color: #1b1b1b;
@@ -796,7 +796,7 @@ input[type="checkbox"] {
   font-family: "Oswald", sans-serif;
   font-size: 16px;
   font-weight: 300;
-  color: #284f6e;
+  color: #fca311;
   text-align: left;
   margin-bottom: 15px;
   -webkit-animation-delay: 0.2s;
@@ -929,15 +929,15 @@ hr {
   font-size: 12px;
   margin-right: 2px;
   cursor: pointer;
-  border: 1px solid #284f6e;
+  border: 1px solid #fca311;
   opacity: 0.7;
   transition: all 0.2s ease-in-out;
   transform: scale(1);
 }
 .owl-theme .owl-nav [class*="owl-"]:hover {
   transform: scale(0.9);
-  background: #284f6e;
-  border: 1px solid #284f6e;
+  background: #fca311;
+  border: 1px solid #fca311;
   color: #fff;
 }
 @media screen and (max-width: 768px) {
@@ -1636,7 +1636,7 @@ hr {
   padding: 14px 60px 15px 15px;
   height: 60px;
   display: block;
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "EB Garamond", sans-serif;
   font-size: 16px;
   background: #f7f7f7;
   color: #888;
@@ -1968,7 +1968,7 @@ button.mfp-arrow {
   color: #888;
   letter-spacing: 3px;
   font-size: 10px;
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "EB Garamond", sans-serif;
   text-transform: uppercase;
   font-weight: 300;
   padding-right: 3px;
@@ -2013,7 +2013,7 @@ button.mfp-arrow {
   font-size: 12px;
   letter-spacing: 2px;
   color: #888;
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "EB Garamond", sans-serif;
   text-transform: uppercase;
 }
 .nopixel-blog .content .info .tags {
@@ -2274,14 +2274,14 @@ button.mfp-arrow {
 }
 /* button border yellow */
 .btn-curve.btn-borderyellow {
-  border-color: #284f6e;
-  color: #284f6e;
+  border-color: #fca311;
+  color: #fca311;
 }
 .btn-curve.btn-borderyellow:hover span {
   color: #fff;
 }
 .btn-curve.btn-borderyellow:after {
-  background: #284f6e;
+  background: #fca311;
 }
 /* button background yellow */
 .btn-curve.btn-bgyellow {
