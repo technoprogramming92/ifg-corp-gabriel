@@ -39,7 +39,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* font-family: "Montserrat", sans-serif; */
+@font-face {
+  font-family: 'ArialCustom';
+  src: url('/fonts/arial/ARIAL.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* font-family: "Montserrat", sans-serif; 
+font-family: 'ArialCustom', sans-serif;
+*/
 /* ======= Basic style ======= */
 html,
 body {
@@ -67,7 +77,7 @@ body {
   background: #fff;
 }
 p {
-  font-family: "EB Garamond", sans-serif;
+  font-family: 'ArialCustom', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.75em;
@@ -502,7 +512,7 @@ input[type="checkbox"] {
   color: #284f6e;
 }
 .navbar .navbar-nav .nav-link {
-  font-family: "EB Garamond", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 13px;
   font-weight: 500;
   color: #fff;
@@ -1060,8 +1070,8 @@ hr {
   padding: 15px;
   color: #fff;
   text-transform: uppercase;
-  font-family: "Oswald", sans-serif;
-  font-weight: 300;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   letter-spacing: 3px;
   font-size: 15px;
   line-height: 1.5em;
