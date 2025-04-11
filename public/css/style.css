@@ -37,6 +37,9 @@
 /* ======= Google fonts (Oswald & EB Garamond) ======= */
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* font-family: "Montserrat", sans-serif; */
 /* ======= Basic style ======= */
 html,
 body {
@@ -422,7 +425,7 @@ input[type="checkbox"] {
 .section-title {
   font-size: 50px;
   line-height: 1.25em;
-  font-family: "Oswald", sans-serif;
+  font-family: "EB Garamond", serif;
   font-weight: 600;
   color: #1b1b1b;
   position: relative;
@@ -439,8 +442,8 @@ input[type="checkbox"] {
 .section-subtitle {
   color: #284f6e;
   font-size: 14px;
-  font-family: "Oswald", sans-serif;
-  font-weight: 300;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
   margin-bottom: 7px;
   letter-spacing: 5px;
@@ -807,7 +810,7 @@ input[type="checkbox"] {
 .header .caption h1 {
   position: relative;
   margin-bottom: 0;
-  font-family: "Oswald", sans-serif;
+  font-family: "EB Garamond", serif;
   font-size: 85px;
   text-transform: uppercase;
   -webkit-animation-delay: 0.4s;
@@ -819,7 +822,7 @@ input[type="checkbox"] {
 .header .caption h1 span {
   position: relative;
   margin-bottom: 0;
-  font-family: "Oswald", sans-serif;
+  font-family: "EB Garamond", serif;
   font-size: 85px;
   text-transform: uppercase;
   -webkit-animation-delay: 0.4s;
