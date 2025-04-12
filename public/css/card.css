@@ -1,0 +1,14 @@
+/* Apply flex styling only to rows that are NOT the first child of the container */
+.services .container > .row:not(:first-child) > [class*="col-"] {
+    display: flex;
+  }
+  
+  /* Apply equal-height settings to .item elements only within non-first rows */
+  .services .container > .row:not(:first-child) .item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 350px; /* adjust as needed */
+  }
+  
