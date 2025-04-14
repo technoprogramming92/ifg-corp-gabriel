@@ -12,3 +12,10 @@
     min-height: 350px; /* adjust as needed */
   }
   
+  ol{
+      list-style-type: lower-alpha !important;
+  }
+
+  ul{
+    list-style-type: disc !important;
+  }

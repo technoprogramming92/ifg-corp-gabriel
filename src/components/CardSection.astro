@@ -1,0 +1,42 @@
+---
+import Card from '../components/Card.astro';
+
+export interface CardProps {
+  title: string;
+  description: string;
+  imageUrl?: string;
+  link: string;
+  icon: string;
+}
+
+export interface Props {
+  cards?: CardProps[];
+}
+
+// Default to an empty array if no cards are passed.
+const { cards = [] } = Astro.props;
+---
+
+<div class="services section-padding" id="industries">
+  <div class="container">
+    <div class="row">
+      <div class="section-head mb-30 col-md-12">
+        <div class="section-subtitle">BLOGS</div>
+        <div class="section-title">Our Blogs</div>
+      </div>
+    </div>
+    <div class="row">
+      {cards.map((card, index) => (
+        <Card 
+          title={card.title} 
+          description={card.description} 
+          imageUrl={card.imageUrl}
+          link={card.link} 
+          icon={card.icon} 
+          numb={index + 1}
+          key={index}
+        />
+      ))}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+---
+// Card.astro
+export interface Props {
+  title: string;
+  description: string;
+  link: string;
+  icon: string;
+  numb: number;
+  imageUrl: string;
+}
+const { title, description, icon, numb,imageUrl,link } = Astro.props;
+---
+
+<div class="col-md-4 animate-box" data-animate-effect="fadeInUp">
+  <div class="item border-custom">
+  <a href={`${link}`}>
+  <img src={`${imageUrl}`}"/>
+  <br/>
+<br/>
+    <h5>{title}</h5>
+    
+    <div class="line"></div>
+    <p>{description}</p>
+    <div class="numb">{numb < 10 ? `0${numb}` : numb}</div>
+    </a>
+  </div>
+</div>
+
+
