@@ -777,7 +777,7 @@ input[type="checkbox"] {
     padding-left: 0px;
     padding-right: 0px;
     background: transparent;
-    /* padding-top: 30px; */
+    padding-top: 15px;
     padding-bottom: 30px;
   }
   .nav-scroll {
