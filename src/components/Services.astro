@@ -15,6 +15,12 @@
     justify-content: space-between;
     min-height: 350px; /* adjust as needed */
 }
+
+@media screen and (max-width: 768px) {
+  .services .container > .row:not(:first-child) > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 </style>
 <div class="services section-padding bg-color">
     <div class="container" id="services">
