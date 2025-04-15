@@ -1,61 +1,63 @@
 ---
 // import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro'
-import About from '../components/About.astro'
-import Services from '../components/Services.astro';
-import Vision from '../components/Vision.astro';
-import Team from '../components/Team.astro';
-import Industries from '../components/Industries.astro';
-import Contact from '../components/Contact.astro';
-import CardSection from '../components/CardSection.astro';
-
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Services from "../components/Services.astro";
+import Vision from "../components/Vision.astro";
+import Team from "../components/Team.astro";
+import Industries from "../components/Industries.astro";
+import Contact from "../components/Contact.astro";
+import CardSection from "../components/CardSection.astro";
 
 const cardsData = [
   {
-    title: 'Budget vs Forecast vs Reality',
-    description: 'In business, numbers tell a story. But what happens when the numbers you planned don’t match the numbers you forecast—or worse, what actually happens?',
-    imageUrl: '/img/vision.jpg',
-    link: '/article1',
-    icon: 'et-laptop'
+    title: "Why You Can’t Always Claim Rental Losses?",
+    description:
+      "When it comes to real estate investments, many taxpayers are surprised to find out that rental losses aren’t always deductible—even if they lost money.",
+    imageUrl: "/img/slider/03.jpg",
+    link: "/article1",
+    icon: "et-briefcase",
   },
   {
-    title: 'Why You Can’t Always Claim Rental Losses?',
-    description: 'When it comes to real estate investments, many taxpayers are surprised to find out that rental losses aren’t always deductible—even if they lost money.',
-    imageUrl: '/img/slider/03.jpg',
-    link: '/inner-article',
-    icon: 'et-briefcase'
+    title: "Why Every Growing Business Needs a CFO?",
+    description:
+      "As a business begins to grow, so do its financial needs. While bookkeepers play a vital role in maintaining accurate records, managing transactions....",
+    imageUrl: "/img/vision.jpg",
+    link: "/inner-article",
+    icon: "et-basket",
   },
   {
-    title: 'Why Every Growing Business Needs a CFO?',
-    description: 'As a business begins to grow, so do its financial needs. While bookkeepers play a vital role in maintaining accurate records, managing transactions....',
-    imageUrl: '/img/vision.jpg',
-    link: '/inner-article',
-    icon: 'et-basket'
+    title: "Budget vs Forecast vs Reality",
+    description:
+      "In business, numbers tell a story. But what happens when the numbers you planned don’t match the numbers you forecast—or worse, what actually happens?",
+    imageUrl: "/img/vision.jpg",
+    link: "/article3",
+    icon: "et-laptop",
   },
 ];
 ---
 
 <Layout>
-	<Hero/>
-	<!-- hr -->
-	<hr class="line-vr-section animate-box" data-animate-effect="fadeInUp">
-<About/>
-<hr class="line-vr-section animate-box" data-animate-effect="fadeInUp">
-<Services/>
-	<!-- hr -->
-	<hr class="line-vr-section animate-box" data-animate-effect="fadeInUp">
-<Vision/>
-<!-- hr -->
-<hr class="line-vr-section animate-box" data-animate-effect="fadeInUp">
-<Team/>
-<!-- hr -->
-<!--<hr class="line-vr-section">-->
-<!--<Industries/>-->
-<!-- hr -->
-<hr class="line-vr-section animate-box" data-animate-effect="fadeInUp">
-<CardSection cards={cardsData}/>
-<!-- hr -->
-<hr class="line-vr-section animate-box" data-animate-effect="fadeInUp">
-<Contact/>
+  <Hero />
+  <!-- hr -->
+  <hr class="line-vr-section animate-box" data-animate-effect="fadeInUp" />
+  <About />
+  <hr class="line-vr-section animate-box" data-animate-effect="fadeInUp" />
+  <Services />
+  <!-- hr -->
+  <hr class="line-vr-section animate-box" data-animate-effect="fadeInUp" />
+  <Vision />
+  <!-- hr -->
+  <hr class="line-vr-section animate-box" data-animate-effect="fadeInUp" />
+  <Team />
+  <!-- hr -->
+  <!--<hr class="line-vr-section">-->
+  <!--<Industries/>-->
+  <!-- hr -->
+  <hr class="line-vr-section animate-box" data-animate-effect="fadeInUp" />
+  <CardSection cards={cardsData} />
+  <!-- hr -->
+  <hr class="line-vr-section animate-box" data-animate-effect="fadeInUp" />
+  <Contact />
 </Layout>

@@ -1,73 +1,208 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
+<style>
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+
+  thead {
+    background-color: #f5f5f5;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 12px 8px;
+    text-align: left;
+  }
+
+  th {
+    font-weight: bold;
+    color: #284f6e; /* Use a matching color if desired */
+  }
+
+  /* Stripe effect for rows */
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  /* Hover effect */
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+</style>
 <Layout>
-<!-- Header Banner -->
-	<div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="img/slider/04.jpg">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 text-left caption mt-90">
-					<h5 class="animate-box" data-animate-effect="fadeInUp"><a href="/">Home</a> / Article</h5>
-					<h1 class="animate-box" data-animate-effect="fadeInUp">Budget vs Forecast vs Reality: How a CFO Helps You Align All Three</h1>
-					<hr class="animate-box" data-animate-effect="fadeInUp">
-					<p class="animate-box" data-animate-effect="fadeInUp">Grab a cuppa, a doughnut and get comfy to read our latest news & trends...</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- hr -->
-	<hr class="line-vr-section animate-box" data-animate-effect="fadeInUp">
-	<!-- Post -->
-	<div class="section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<p class="mb-30">In business, numbers tell a story. But what happens when the numbers you planned don’t match the numbers you forecast—or worse, what actually happens? That’s where the strategic guidance of a CFO comes in.</p>
-                    <p class="mb-30">
-                    Many growing businesses struggle to manage the relationship between three critical financial pillars: <strong>budget, forecast,</strong> and <strong>reality</strong>. Let’s break down the difference between the three and how a CFO bridges the gap.
-                    </p>
-					<img src="img/slider/03.jpg" class="mb-30" alt="">
-                    <h4>Budget: Your Business Blueprint</h4>
-					<p class="mb-30">A budget is a financial plan based on your goals. It sets expectations for revenue, expenses, and profit over a fixed period (usually a year). It serves as the roadmap guiding your business toward its financial goals.</p>
-                    <p class="mb-30">But budgets are based on assumptions. Market shifts, customer behaviour, and unexpected expenses can quickly render them outdated. That’s where forecasting comes in.</p>
-<h4>Forecast: Your Best Estimate Based on Current Data</h4>
-                    <p class="mb-30">A forecast is more dynamic. It projects future financial outcomes based on real-time data and trends. The budget remains fixed, while the forecast adapts to changing conditions.</p>
-                    <p>Forecasts are updated regularly (monthly or quarterly) and answer questions like:</p>
-                    <ul class="mb-30">
-                    <li>Are we on track to hit revenue goals?</li>
-                    <li>Do we need to cut costs based on performance so far?</li>
-                    <li>Will our cash flow support upcoming initiatives?</li>
-                    </ul>
-<h4>Reality: What Actually Happens</h4>
-<p class="mb-30">Reality is your actual performance—the numbers you see in your financial reports. And more often than not, it doesn’t match the budget or forecast exactly.</p>
-<p class="mb-30">The key isn’t to aim for perfection, but to understand the <strong>"why"</strong> behind the differences. That’s where a CFO adds immense value.</p>
-<h4>How a CFO Aligns Budget, Forecast & Reality</h4>
-<ol class="mb-30">
-<li><strong>Creates flexible budgets</strong> that account for uncertainty and changing priorities.</li>
-<li><strong>Updates forecasts</strong> regularly to reflect actual performance and external factors.</li>
-<li><strong>Performs variance analysis</strong> to compare actual results with budget and forecast.</li>
-<li><strong>Explains the "why"</strong> behind gaps—was it a pricing issue, demand fluctuation, or cost overrun?</li>
-<li>Recommends course corrections in strategy, spending, or operations.</li>
-</ol>
-<p class="mb-30">It’s not enough to create a budget and hope for the best. Businesses that align budget, forecast, and reality are more agile, more prepared, and more profitable.</p>
-<p>A CFO doesn’t just manage the numbers—they help you understand them, react to them, and use them to grow smarter. If you feel like your financial plan is always playing catch-up, it might be time to bring a CFO into the picture.</p>
-				</div>
-			</div>
-			<div class="nopixel-comment-section">
-				<div class="row">
-					<!-- Comment -->
-					<div class="col-md-7">
-						<div class="nopixel-post-comment-wrap">
-							<div class="nopixel-user-comment"> <img src="img/team/1.jpg" alt=""> </div>
-							<div class="nopixel-user-content">
-								<h6>Robert Misse<span> 29 October 2025</span></h6>
-								<p>Photography ultricies nibh non dolor maximus scee the inte molliser faubs neque nec tincidunte aliquam erat volutpat. Praeser tem malade. </p> <a class="nopixel-repay" href="#">Reply<i class="ti-back-left"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- Contact Form -->
-				<!--	<div class="col-md-4 offset-md-1">
+  <!-- Header Banner -->
+  <div
+    class="banner-header section-padding valign bg-img bg-fixed"
+    data-overlay-dark="4"
+    data-background="img/slider/04.jpg"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-left caption mt-90">
+          <h5 class="animate-box" data-animate-effect="fadeInUp">
+            <a href="/">Home</a> / Article
+          </h5>
+          <h1 class="animate-box" data-animate-effect="fadeInUp">
+            Why You Can’t Always Claim Rental Losses: Understanding Passive
+            Activity Loss Limitations
+          </h1>
+          <hr class="animate-box" data-animate-effect="fadeInUp" />
+          <p class="animate-box" data-animate-effect="fadeInUp">
+            Grab a cuppa, a doughnut and get comfy to read our latest news &
+            trends...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- hr -->
+  <hr class="line-vr-section animate-box" data-animate-effect="fadeInUp" />
+  <!-- Post -->
+  <div class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="mb-30">
+            When it comes to real estate investments, many taxpayers are
+            surprised to find out that <strong
+              >rental losses aren’t always deductible</strong
+            >—even if they lost money. This is because of something called the <strong
+              >Passive Activity Loss (PAL) limitation</strong
+            >, a rule that often catches high-income earners off guard.
+          </p>
+          <p class="mb-30">Let’s break it down in simple terms.</p>
+          <img src="img/slider/03.jpg" class="mb-30" alt="" />
+          <h4>What Is a Passive Activity?</h4>
+          <p class="mb-30">
+            The IRS considers most rental real estate activities to be <strong
+              >passive</strong
+            > by default. This means that <strong
+              >you don’t materially participate</strong
+            > in the day-to-day operations of the rental, even if you own and manage
+            the property.
+          </p>
+          <h4>Under IRS rules:</h4>
+          <p class="mb-30">
+            Passive losses can generally <strong
+              >only be deducted against passive income</strong
+            > (like profits from other rentals or investments in passive businesses).
+          </p>
+          <p>
+            If you have no passive income to offset, the loss is considered <strong
+              >“suspended”</strong
+            > and carried forward to future years.
+          </p>
+
+          <h4>
+            The $25,000 Special Allowance (And Why It Doesn’t Always Help)
+          </h4>
+          <p class="mb-30">The good news? There’s an exception.</p>
+          <p class="mb-30">
+            If you actively participate in your rental (e.g., make management
+            decisions or approve expenses), you might qualify to deduct up to <strong
+              >$25,000</strong
+            > of losses against <strong>non-passive income</strong> (like wages or
+            business income).
+          </p>
+          <p class="mb-30">But here’s the catch…</p>
+          <!-- Table -->
+          <table border="1" cellspacing="0" cellpadding="8">
+            <thead>
+              <tr>
+                <th>Adjusted Gross Income (AGI)</th>
+                <th>How Much You Can Deduct</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$100,000 or less</td>
+                <td>Full $25,000</td>
+              </tr>
+              <tr>
+                <td>$100,000 – $150,000</td>
+                <td>Partial deduction</td>
+              </tr>
+              <tr>
+                <td>Over $150,000</td>
+                <td>$0 deduction</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- Table ends -->
+          <p class="mb-30">
+            If your AGI is <strong>over $150,000,</strong> the special allowance
+            <strong>phases out entirely</strong>, and your rental loss becomes
+            non-deductible for the year.
+          </p>
+          <h4>Example</h4>
+          <p>Let's say:</p>
+          <ul>
+            <li>&#x2022;&nbsp;You and your spouse file jointly with an AGI of $231,000</li>
+            <li>&#x2022;&nbsp;You had a rental property loss of $8,000</li>
+          </ul>
+          <p class="mb-30">Because your AGI is over $150,000, you don’t qualify for the $25,000 allowance. The entire $8,000 loss is <strong>suspended</strong> and carried forward. It won’t reduce your taxable income this year.</p>
+
+          <h4>What Happens to the Suspended Loss?</h4>
+          <p>Don’t worry—your loss isn’t gone forever.</p>
+          <p>You can claim the suspended losses in future years:</p>
+          <ol>
+            <li>1. When your income drops below the phase-out range</li>
+            <li>2. When you generate passive income to offset it</li>
+            <li>3. When you sell the rental property in a fully taxable sale</li>
+          </ol>
+          <h4>Is There a Way to Avoid This?</h4>
+          <p>Yes, in some cases:</p>
+          <ul>
+            <li>&#x2022;&nbsp;<strong>Qualify as a Real Estate Professional (RE Pro Status)</strong></li>
+            <li>&#x2022;&nbsp;<strong>Group rentals as part of a business activity </strong>you materially participate in</li>
+            <li>&#x2022;&nbsp;<strong>Sell the property </strong>and unlock all suspended losses</li>
+            <li>&#x2022;&nbsp;Offset with <strong>other passive income</strong></li>
+          </ul>
+          <p class="mb-30">
+            But these strategies require careful planning and may not apply to everyone.
+          </p>
+          <p class="mb-30">
+            If you’re not seeing your rental losses reflected on your tax return, <strong>you’re not alone</strong>. Passive Activity Loss rules are one of the most misunderstood areas in personal taxes.
+          </p>
+          <p class="mb-30">
+            Understanding how and when you can deduct these losses—and planning accordingly—can help you make smarter tax decisions moving forward.
+          </p>
+          <p class="mb-30">
+            Got rental properties and unsure about your losses? Let's connect and review your return together. I’ll help you understand what’s allowed, what’s not, and how to make the most of your real estate investments.
+          </p>
+        </div>
+      </div>
+      <div class="nopixel-comment-section">
+        <div class="row">
+          <!-- Comment -->
+          <div class="col-md-7">
+            <div class="nopixel-post-comment-wrap">
+              <div class="nopixel-user-comment">
+                <img src="img/team/1.jpg" alt="" />
+              </div>
+              <div class="nopixel-user-content">
+                <h6>Robert Misse<span> 29 October 2025</span></h6>
+                <p>
+                  Photography ultricies nibh non dolor maximus scee the inte
+                  molliser faubs neque nec tincidunte aliquam erat volutpat.
+                  Praeser tem malade.
+                </p>
+                <a class="nopixel-repay" href="#"
+                  >Reply<i class="ti-back-left"></i></a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Contact Form -->
+          <!--	<div class="col-md-4 offset-md-1">
 						<h6>Leave a Reply</h6>
 						<form method="post" class="contact__form" action="https://duruthemes.com/demo/html/nopixel/multipage-light/mail.php">
                             
@@ -95,25 +230,26 @@ import Layout from '../layouts/Layout.astro';
                             </div>
                         </form>
 					</div>-->
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Prev-Next Post -->
-	<div class="nopixel-post-prev-next">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="d-sm-flex align-items-center justify-content-between">
-						<div class="nopixel-post-prev-next-left">
-							<a href="#"> <i class="ti-arrow-left"></i> Previous Post</a>
-						</div> <a href="#"><i class="ti-layout-grid3-alt"></i></a>
-						<div class="nopixel-post-prev-next-right"> <a href="#">Next Post <i class="ti-arrow-right"></i></a> </div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-    
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Prev-Next Post -->
+  <div class="nopixel-post-prev-next">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-sm-flex align-items-center justify-content-between">
+            <div class="nopixel-post-prev-next-left">
+              <a href="#"> <i class="ti-arrow-left"></i> Previous Post</a>
+            </div>
+            <a href="#"><i class="ti-layout-grid3-alt"></i></a>
+            <div class="nopixel-post-prev-next-right">
+              <a href="#">Next Post <i class="ti-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
