@@ -3,7 +3,14 @@
 import Layout from '../layouts/Layout.astro';
 
 ---
-
+<style>
+@media screen and (max-width: 767px) {
+  h1  {
+    font-size:30px !important;
+    text-wrap:nowrap;
+  }
+}
+</style>
 <Layout>
     <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="img/services/4.webp">
 		<div class="container">
