@@ -1,5 +1,6 @@
 ---
 const currentPath = Astro.url.pathname;
+console.log("Current Path:", currentPath);
 ---
 
 <nav class="navbar navbar-expand-lg">
@@ -8,7 +9,7 @@ const currentPath = Astro.url.pathname;
     <a class="logo" href="/">
       <img src="img/logo-light.png" alt="Logo">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="icon-bar"><i class="ti-line-double"></i></span>
     </button>
@@ -17,44 +18,39 @@ const currentPath = Astro.url.pathname;
       <ul class="navbar-nav ml-auto">
         <!-- Home -->
         <li class="nav-item">
-          <a class="nav-link {currentPath === '/' ? 'active' : ''}" href="/">Home</a>
+          <a class={"nav-link " + (currentPath === "/" ? "active" : "")} href="/">Home</a>
         </li>
         <!-- Practice Areas Dropdown -->
         <li class="nav-item dropdown">
-          <span class="nav-link {(
-            currentPath.startsWith('/book-keeping') ||
-            currentPath.startsWith('/cfo-services') ||
-            currentPath.startsWith('/tax-services') ||
-            currentPath.startsWith('/payroll')
-          ) ? 'active' : ''}">
+          <span class={"nav-link " + ((currentPath.includes("book-keeping") ||
+                                        currentPath.includes("cfo-services") ||
+                                        currentPath.includes("tax-services") ||
+                                        currentPath.includes("payroll"))
+                                        ? "active" : "")}>
             Practice Areas <i class="ti-angle-down"></i>
           </span>
           <ul class="dropdown-menu last">
-            <li class="dropdown-item">
-              <a class="{currentPath === '/book-keeping' ? 'active' : ''}" href="/book-keeping">BookKeeping</a>
-            </li>
-            <li class="dropdown-item">
-              <a class="{currentPath === '/cfo-services' ? 'active' : ''}" href="/cfo-services">CFO Services</a>
-            </li>
-            <li class="dropdown-item">
-              <a class="{currentPath === '/tax-services' ? 'active' : ''}" href="/tax-services">Tax Services</a>
-            </li>
-            <li class="dropdown-item">
-              <a class="{currentPath === '/payroll' ? 'active' : ''}" href="/payroll">Payroll</a>
-            </li>
+            <li class="dropdown-item"><a class={" " + (currentPath === "/book-keeping" ? "active" : "")} href="/book-keeping">BookKeeping</a></li>
+            <li class="dropdown-item"><a class={" " + (currentPath === "/cfo-services" ? "active" : "")} href="/cfo-services">CFO Services</a></li>
+            <li class="dropdown-item"><a class={" " + (currentPath === "/tax-services" ? "active" : "")} href="/tax-services">Tax Services</a></li>
+            <li class="dropdown-item"><a class={" " + (currentPath === "/payroll" ? "active" : "")} href="/payroll">Payroll</a></li>
           </ul>
         </li>
         <!-- Industries Served -->
         <li class="nav-item">
-          <a class="nav-link {currentPath === '/industries-served' ? 'active' : ''}" href="/industries-served">Industries Served</a>
+          <a class={"nav-link " + (currentPath === "/industries-served" ? "active" : "")} href="/industries-served">Industries Served</a>
         </li>
         <!-- Articles -->
         <li class="nav-item">
-          <a class="nav-link {currentPath === '/articles' ? 'active' : ''}" href="/articles">Articles</a>
-        </li>
+  <a
+    class={"nav-link " + ((currentPath === "/articles" || currentPath.match(/^\/article\d+/)) ? "active" : "")}
+    href="/articles">
+    Articles
+  </a>
+</li>
         <!-- Contact -->
         <li class="nav-item">
-          <a class="nav-link {currentPath === '/contact' ? 'active' : ''}" href="/contact">Contact</a>
+          <a class={"nav-link " + (currentPath === "/contact" ? "active" : "")} href="/contact">Contact</a>
         </li>
       </ul>
     </div>
