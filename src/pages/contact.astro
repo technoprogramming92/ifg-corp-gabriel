@@ -3,6 +3,17 @@ import Layout from '../layouts/Layout.astro';
 // import Contact from '../components/Contact.astro';
 ---
 
+<style>
+.br-1 {
+  border: 1px solid #d3d3d3 !important;
+
+  padding:25px;
+}
+</style>
+<!--
+#F7F7F7
+#284f6e
+-->
 <Layout>
 <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="img/contact-cover.webp">
     <div class="container">
@@ -26,7 +37,7 @@ Kickstart a conversation that drives success.
   <div class="contact section-padding bg-color" id="contact">
 		<div class="container">
 			<div class="row mb-90">
-				<div class="col-md-8">
+				<div class="col-md-8 br-1">
 					<h5>Contact Form</h5>
 					    <form method="post" class="contact__form" action="#">
                             <!-- Form message -->
