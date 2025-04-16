@@ -5,7 +5,7 @@ import Footer2 from '../components/Footer2.astro';
 import Header2 from '../components/Header2.astro';
 import WhtBtn from "../components/WhtBtn.astro";
 // Get the current URL pathname from Astro
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.request?.url?.pathname || Astro.url.pathname;
 ---
 <!doctype html>
 <html lang="en">
