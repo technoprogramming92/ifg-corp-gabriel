@@ -592,6 +592,9 @@ input[type="checkbox"] {
 .nav-scroll .navbar-nav .active {
   color: #284f6e !important;
 }
+.nav-scroll .navbar-nav :hover {
+  color: #284f6e !important;
+}
 .nav-scroll .navbar-nav .logo {
   padding: 15px 0;
   color: #888;
