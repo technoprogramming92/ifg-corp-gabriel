@@ -1,6 +1,6 @@
 ---
 const currentPath = Astro.url.pathname;
-const normalizedPath = currentPath.replace(/\/$/, "");
+const normalizedPath = currentPath.replace(/\/$/, "") || "/";
 console.log("Current Path:", currentPath, "Normalized Path:", normalizedPath);
 ---
 
