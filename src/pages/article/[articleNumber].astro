@@ -1,0 +1,119 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from '../../lib/db';
+import { marked } from 'marked';
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+});
+const { articleNumber } = Astro.params;
+const collection = await getCollection();
+const article = await collection.findOne({ articleNumber: String(articleNumber) });
+
+if (!article) {
+  throw new Error("Article not found.");
+}
+
+const htmlContent = marked(article.content);
+const dateObj = new Date(article.date);
+const day = dateObj.getDate();
+const monthYear = dateObj.toLocaleDateString('en-US', {
+  month: 'short',
+  year: 'numeric'
+});
+---
+<style>
+  .markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #284f6e;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid #284f6e;
+  padding: 12px;
+  text-align: left;
+}
+
+</style>
+<Layout>
+  <!-- Header Banner -->
+  <div
+    class="banner-header section-padding valign bg-img bg-fixed"
+    data-overlay-dark="4"
+    data-background="/img/blog-cover/blog-cover.webp"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-left caption mt-90">
+          <h5 class="animate-box" data-animate-effect="fadeInUp">
+            <a href="/">Home</a> / Article
+          </h5>
+          <h1 class="animate-box" data-animate-effect="fadeInUp">
+            {article.title}
+          </h1>
+          <hr class="animate-box" data-animate-effect="fadeInUp" />
+          <!-- <p class="animate-box" data-animate-effect="fadeInUp">
+            Grab a cuppa, a doughnut and get comfy to read our latest news & trends...
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- hr -->
+  <hr class="line-vr-section animate-box" data-animate-effect="fadeInUp" />
+
+  <!-- Post Content -->
+  <div class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <img src={article.imageUrl} class="mb-30" alt={article.title} />
+          <article class="markdown-body" set:html={htmlContent}></article>
+        </div>
+      </div>
+
+      <!-- Optional: Comment Section -->
+      <div class="nopixel-comment-section">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="nopixel-post-comment-wrap">
+              <div class="nopixel-user-comment">
+                <img src="/img/team/profile-pic.avif" alt="" />
+              </div>
+              <div class="nopixel-user-content">
+                <h6>{article.author || "Gabriel Ilyayeff"}<span> {day}&nbsp; {monthYear}</span></h6>
+                <p>
+                  Thank you for reading. For further insights and expert guidance, feel free to explore our other articles.
+                </p>
+                <!-- <a class="nopixel-repay" href="#">Reply <i class="ti-back-left"></i></a> -->
+              </div>
+            </div>
+          </div>
+          <!-- Optional: Comment form can be added here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prev-Next Post -->
+  <div class="nopixel-post-prev-next">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-sm-flex align-items-center justify-content-between">
+            <div class="nopixel-post-prev-next-left">
+              <a href="#"> <i class="ti-arrow-left"></i> Previous Post</a>
+            </div>
+            <a href="/articles"><i class="ti-layout-grid3-alt"></i></a>
+            <div class="nopixel-post-prev-next-right">
+              <a href="#">Next Post <i class="ti-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
