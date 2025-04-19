@@ -1,0 +1,243 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<head>
+  <!-- Favicon start -->
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/img/favicon/apple-touch-icon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/img/favicon/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/img/favicon/favicon-16x16.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="192x192"
+    href="/img/favicon/android-chrome-192x192.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="512x512"
+    href="/img/favicon/android-chrome-512x512.png"
+  />
+  <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+
+  <!-- Favicon end -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/easymde/dist/easymde.min.css"
+  />
+  <!-- EasyMDE CSS and JS -->
+  <script
+    is:inline
+    src="
+  https://cdn.jsdelivr.net/npm/easymde@2.20.0/dist/easymde.min.js
+  "
+  ></script>
+  <link
+    href="
+  https://cdn.jsdelivr.net/npm/easymde@2.20.0/dist/easymde.min.css
+  "
+    rel="stylesheet"
+  />
+  <title>Add Article | IFG</title>
+</head>
+<style>
+  #logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* spacing between logo and form */
+  }
+
+  #logo img {
+    max-width: 180px; /* adjust size as needed */
+    height: auto;
+  }
+  #articleForm {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    background: #f8f9fa;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  #articleForm input,
+  #articleForm textarea {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+  }
+
+  #articleForm input:focus,
+  #articleForm textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  }
+
+  #articleForm textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  #articleForm button {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  #articleForm button:hover {
+    background: #0056b3;
+  }
+
+  @media (max-width: 767px) {
+    #articleForm {
+      padding: 20px;
+    }
+
+    #articleForm button {
+      width: 100%;
+    }
+  }
+</style>
+<div id="logo"><img src="/img/logo-dark.png" /></div>
+<form id="articleForm">
+  <input name="title" placeholder="Title" required />
+  <input name="imageUrl" placeholder="Image URL" required />
+  <input name="date" type="date" required />
+  <input name="author" placeholder="Author" required />
+  <input name="articleNumber" placeholder="Article Number" required />
+  <textarea
+    id="markdown-content"
+    name="content"
+    placeholder="Article in Markdown"></textarea>
+  <button type="submit">Submit</button>
+</form>
+<!-- <script is:inline>
+    const form = document.getElementById('articleForm');
+    const textarea = document.getElementById('markdown-content');
+  
+    if (form && textarea) {
+      const easyMDE = new EasyMDE({ element: textarea });
+  
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+  
+        const target = /** @type {HTMLFormElement} */ (e.target);
+        const formData = new FormData(target);
+        const data = Object.fromEntries(formData);
+        data.content = easyMDE.value();
+  
+        await fetch('/api/addArticle', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+  
+        alert('Article added!');
+        target.reset(); // now safe
+        easyMDE.value('');
+      });
+    }
+  </script> -->
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("articleForm");
+    const textarea = document.getElementById("markdown-content");
+
+    if (form && textarea) {
+      const easyMDE = new EasyMDE({
+        element: textarea,
+        toolbar: [
+          "heading-1",
+          "heading-2",
+          "heading-3",
+          "heading",
+          "|",
+          "bold",
+          "italic",
+          "quote",
+          "|",
+          "unordered-list",
+          "ordered-list",
+          "|",
+          "link",
+          "image",
+          "table",
+          "|",
+          "preview",
+          "side-by-side",
+          "fullscreen",
+          "|",
+          "guide",
+        ],
+        renderingConfig: {
+          singleLineBreaks: false,
+          codeSyntaxHighlighting: true,
+          gfm: true,
+        },
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const content = easyMDE.value().trim();
+
+        if (!content) {
+          alert("Please enter article content.");
+          return;
+        }
+
+        textarea.value = content; // Sync content to hidden textarea
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+          const response = await fetch("/api/addArticle", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (!response.ok) {
+            throw new Error("Server error");
+          }
+
+          alert("✅ Article added successfully!");
+          form.reset();
+          easyMDE.value("");
+        } catch (err) {
+          alert("❌ Failed to add article. Please try again.");
+          console.error(err);
+        }
+      });
+    }
+  });
+</script>
