@@ -53,9 +53,9 @@ console.log("Current Path:", currentPath, "Normalized Path:", normalizedPath);
         </li>
         <!-- Articles -->
         <li class="nav-item">
-          <a class={"nav-link " + ((normalizedPath === "/articles" || normalizedPath.match(/^\/article\d+/)) ? "active" : "")} href="/articles">
+          <a class={"nav-link " + ((normalizedPath === "/articles" || normalizedPath.match(/^\/article\/\d+/)) ? "active" : "")} href="/articles">
             Articles
-          </a>
+          </a>          
         </li>
         <!-- Contact -->
         <li class="nav-item">
