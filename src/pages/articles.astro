@@ -1,13 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from '../lib/db';
+
+const collection = await getCollection();
+const articles = await collection.find().sort({date: -1}).toArray();
 ---
 
 <Layout>
-  <div
-    class="banner-header section-padding valign bg-img bg-fixed"
-    data-overlay-dark="4"
-    data-background="img/blog-cover/blog-cover.webp"
-  >
+<div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="img/blog-cover/blog-cover.webp">
     <div class="container">
       <div class="row">
         <div class="col-md-8 offset-md-2 text-center caption mt-90">
@@ -15,139 +15,69 @@ import Layout from "../layouts/Layout.astro";
             <a href="/">Home</a> / Articles
           </h5>
           <h1 class="animate-box" data-animate-effect="fadeInUp">Articles</h1>
-          <hr class="animate-box" data-animate-effect="fadeInUp" />
+          <hr class="animate-box" data-animate-effect="fadeInUp">
           <p class="animate-box" data-animate-effect="fadeInUp">
-            Ignite Your Curiosity – Dive into insights, trends, and expert
-            perspectives.
+            Ignite Your Curiosity –
+Dive into insights, trends, and expert perspectives.
           </p>
         </div>
       </div>
     </div>
-  </div>
+</div>
 
-  <div class="nopixel-blog section-padding">
-    <div class="container">
-      <div class="row mb-30">
-        <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-          <div class="img left">
-            <a href="/article3"><img src="img/blogs/3.webp" alt="" /></a>
-          </div>
-        </div>
-        <div
-          class="col-md-6 valign animate-box"
-          data-animate-effect="fadeInRight"
-        >
-          <div class="content">
-            <div class="date">
-              <h1>16</h1>
-              <h6>Apr 2025</h6>
-            </div>
-            <div class="cont">
-              <div class="info">
-                <h6>Admin</h6>
-              </div>
-              <h5>
-                BUDGET VS FORECAST VS REALITY: HOW A CFO HELPS YOU ALIGN ALL
-                THREE
-              </h5>
-              <a href="/article3" class="more" data-splitting=""
-                ><span>Read More</span></a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-30">
-        <div
-          class="col-md-6 order2 valign animate-box"
-          data-animate-effect="fadeInLeft"
-        >
-          <div class="content">
-            <div class="date">
-              <h1>15</h1>
-              <h6>Apr 2025</h6>
-            </div>
-            <div class="cont">
-              <div class="info">
-                <h6><a href="#0">Admin</a></h6>
-              </div>
-              <h5>
-                WHY YOU CAN’T ALWAYS CLAIM RENTAL LOSSES: UNDERSTANDING PASSIVE
-                ACTIVITY LOSS LIMITATIONS
-              </h5>
-              <a href="/article2" class="more" data-splitting=""
-                ><span>Read More</span></a
-              >
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-6 order1 animate-box"
-          data-animate-effect="fadeInRight"
-        >
-          <div class="img left">
-            <a href="/article2"><img src="img/blogs/2.webp" alt="" /></a>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-30">
-        <div class="col-md-6">
-          <div class="img left">
-            <a href="/article1"><img src="img/blogs/1.webp" alt="" /></a>
-          </div>
-        </div>
-        <div class="col-md-6 valign">
-          <div class="content">
-            <div class="date">
-              <h1>14</h1>
-              <h6>Apr 2025</h6>
-            </div>
-            <div class="cont">
-              <div class="info">
-                <h6>Admin</h6>
-              </div>
-              <h5>WHY EVERY GROWING BUSINESS NEEDS A CFO?</h5>
-              <a href="/article1" class="more" data-splitting=""
-                ><span>Read More</span></a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--<div class="row mb-30">
-				<div class="col-md-6 order2 valign animate-box" data-animate-effect="fadeInLeft">
-					<div class="content">
+	<div class="nopixel-blog section-padding">
+		<div class="container">
+			{articles.map((article, index) => (
+			  <div class="row mb-30">
+				{index % 2 === 0 ? (
+				  <>
+					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+					  <div class="img left">
+						<a href={`/article/${article.articleNumber}`}><img src={article.imageUrl} alt={article.title}/></a>
+					  </div>
+					</div>
+					<div class="col-md-6 valign animate-box" data-animate-effect="fadeInRight">
+					  <div class="content">
 						<div class="date">
-							<h1>09</h1>
-							<h6>June 2025</h6>
+						  <h1>{new Date(article.date).getDate()}</h1>
+						  <h6>{new Date(article.date).toLocaleString('default', { month: 'short', year: 'numeric' })}</h6>
 						</div>
 						<div class="cont">
-							<div class="info">
-								<h6><a href="#0">Admin</a> / <a href="#0" class="tags">Blog</a></h6>
-							</div>
-							<h5>Drana ravida suna evetion mono conse the convallis</h5> <a href="#" class="more" data-splitting=""><span>Read More</span></a>
+						  <div class="info">
+							<h6>{article.author}</h6>
+						  </div>
+						  <h5>{article.title}</h5>
+						  <a href={`/article/${article.articleNumber}`} class="more"><span>Read More</span></a>
 						</div>
+					  </div>
 					</div>
-				</div>
-				<div class="col-lg-6 order1 animate-box" data-animate-effect="fadeInRight">
-					<div class="img left">
-						<a href="#"><img src="img/slider/04.jpg" alt=""></a>
+				  </>
+				) : (
+				  <>
+					<div class="col-md-6 order2 valign animate-box" data-animate-effect="fadeInLeft">
+					  <div class="content">
+						<div class="date">
+						  <h1>{new Date(article.date).getDate()}</h1>
+						  <h6>{new Date(article.date).toLocaleString('default', { month: 'short', year: 'numeric' })}</h6>
+						</div>
+						<div class="cont">
+						  <div class="info">
+							<h6>{article.author}</h6>
+						  </div>
+						  <h5>{article.title}</h5>
+						  <a href={`/article/${article.articleNumber}`} class="more"><span>Read More</span></a>
+						</div>
+					  </div>
 					</div>
-				</div>
-			</div>-->
-      <!-- Pagination -->
-      <!-- <div class="row">
-				<div class="col-md-12 text-center animate-box" data-animate-effect="fadeInUp">
-					<ul class="nopixel-pagination-wrap align-center mb-30 mt-30">
-						<li><a href="#"><i class="ti-angle-left"></i></a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#" class="active">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#"><i class="ti-angle-right"></i></a></li>
-					</ul>
-				</div>
-			</div>-->
-    </div>
-  </div>
+					<div class="col-lg-6 order1 animate-box" data-animate-effect="fadeInRight">
+					  <div class="img left">
+						<a href={`/article/${article.articleNumber}`}><img src={article.imageUrl} alt={article.title}/></a>
+					  </div>
+					</div>
+				  </>
+				)}
+			  </div>
+			))}
+		  </div>
+	</div>
 </Layout>
