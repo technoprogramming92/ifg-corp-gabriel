@@ -1,0 +1,42 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  margin: 1rem 0;
+}
+
+table {
+  width: auto;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  min-width: 600px; /* Ensures scroll is needed on mobile */
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  white-space: nowrap; /* Prevent line breaks in content */
+}
+
+th {
+  background-color: #284f6e;
+  color: #ffffff;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Optional: Add subtle box-shadow to show scroll area on mobile */
+@media (max-width: 767px) {
+  .table-container {
+    box-shadow: inset 0 -1px 0 #ddd;
+    overflow-x: scroll;
+  }
+  th,td{
+    font-size: 15px;
+    padding: 5px 5px;
+  }
+  
+}

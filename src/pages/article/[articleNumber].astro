@@ -22,22 +22,11 @@ const monthYear = dateObj.toLocaleDateString('en-US', {
   year: 'numeric'
 });
 ---
-<style>
-  .markdown-body table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid #284f6e;
-}
 
-.markdown-body th,
-.markdown-body td {
-  border: 1px solid #284f6e;
-  padding: 12px;
-  text-align: left;
-}
-
-</style>
 <Layout>
+  <Fragment slot="head">
+    <link rel="stylesheet" href="/css/List.css">
+  </Fragment>
   <!-- Header Banner -->
   <div
     class="banner-header section-padding valign bg-img bg-fixed"
