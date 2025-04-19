@@ -2,8 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from '../lib/db';
 
+// const collection = await getCollection();
+// const articles = await collection.find().sort({date: -1}).toArray();
+let articles = [];
+try {
 const collection = await getCollection();
-const articles = await collection.find().sort({date: -1}).toArray();
+articles = await collection.find().sort({date: -1}).toArray();
+} catch (err) {
+  console.error('DB fetch failed:', err);
+  throw new Error('Article fetch failed');
+}
 ---
 
 <Layout>

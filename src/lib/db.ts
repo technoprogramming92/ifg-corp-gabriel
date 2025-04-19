@@ -1,27 +1,16 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, Db } from 'mongodb';
 
-const uri = import.meta.env.MONGO_URI;
+const uri = import.meta.env.MONGODB_URI;
+const client = new MongoClient(uri);
 
-if (!uri) {
-  throw new Error("Please define MONGODB_URI in your .env file");
-}
+let db: Db | null = null;
 
-// Singleton MongoDB client to avoid multiple connections
-let cachedClient: MongoClient | null = null;
-
-export async function getCollection(collectionName = "articles") {
-  if (!cachedClient) {
-    cachedClient = new MongoClient(uri);
-
-    try {
-      await cachedClient.connect();
-      console.log("✅ MongoDB connected");
-    } catch (error) {
-      console.error("❌ Failed to connect to MongoDB:", error);
-      throw error;
-    }
+export async function getCollection(collectionName = 'articles') {
+  if (!db) {
+    await client.connect();
+    db = client.db('ifg'); // replace 'ifg' with your actual database name
+    console.log('✅ MongoDB connected');
   }
 
-  const db = cachedClient.db("ifg");
   return db.collection(collectionName);
 }
