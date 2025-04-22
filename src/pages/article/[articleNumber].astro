@@ -1,14 +1,16 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getCollection } from '../../lib/db';
-import { marked } from 'marked';
+import { getCollection } from "../../lib/db";
+import { marked } from "marked";
 marked.setOptions({
   gfm: true,
   breaks: true,
 });
 const { articleNumber } = Astro.params;
 const collection = await getCollection();
-const article = await collection.findOne({ articleNumber: String(articleNumber) });
+const article = await collection.findOne({
+  articleNumber: String(articleNumber),
+});
 
 if (!article) {
   throw new Error("Article not found.");
@@ -17,16 +19,38 @@ if (!article) {
 const htmlContent = marked(article.content);
 const dateObj = new Date(article.date);
 const day = dateObj.getDate();
-const monthYear = dateObj.toLocaleDateString('en-US', {
-  month: 'short',
-  year: 'numeric'
+const monthYear = dateObj.toLocaleDateString("en-US", {
+  month: "short",
+  year: "numeric",
 });
+
+const allArticles = await collection.find().toArray();
+const articleNumbers = allArticles.map((a) => Number(a.articleNumber));
+
+const current = Number(article.articleNumber);
+// Check availability
+const hasPrev = articleNumbers.includes(current - 1);
+const hasNext = articleNumbers.includes(current + 1);
+
+const prevHref = hasPrev ? `/article/${current - 1}` : "#";
+const nextHref = hasNext ? `/article/${current + 1}` : "#";
+
+const prev = current > 1 ? `/article/${current - 1}` : "#";
+const next = `/article/${current + 1}`;
 ---
 
 <Layout>
   <Fragment slot="head">
-      <title>Articles | IFG</title>
-    <link rel="stylesheet" href="/css/List.css">
+    <title>Articles | IFG</title>
+    <link rel="stylesheet" href="/css/List.css" />
+    <style>
+      .nopixel-post-prev-next a.disabled {
+        pointer-events: none;
+        color: #aaa;
+        opacity: 0.6;
+        cursor: default;
+      }
+    </style>
   </Fragment>
   <!-- Header Banner -->
   <div
@@ -61,7 +85,7 @@ const monthYear = dateObj.toLocaleDateString('en-US', {
       <div class="row">
         <div class="col-md-12">
           <img src={article.imageUrl} class="mb-30" alt={article.title} />
-          <article class="markdown-body" set:html={htmlContent}></article>
+          <article class="markdown-body" set:html={htmlContent} />
         </div>
       </div>
 
@@ -74,9 +98,13 @@ const monthYear = dateObj.toLocaleDateString('en-US', {
                 <img src="/img/team/profile-pic.avif" alt="" />
               </div>
               <div class="nopixel-user-content">
-                <h6>{article.author || "Gabriel Ilyayeff"}<span> {day}&nbsp; {monthYear}</span></h6>
+                <h6>
+                  {article.author || "Gabriel Ilyayeff"}<span>
+                    {day}&nbsp; {monthYear}</span>
+                </h6>
                 <p>
-                  Thank you for reading. For further insights and expert guidance, feel free to explore our other articles.
+                  Thank you for reading. For further insights and expert
+                  guidance, feel free to explore our other articles.
                 </p>
                 <!-- <a class="nopixel-repay" href="#">Reply <i class="ti-back-left"></i></a> -->
               </div>
@@ -95,11 +123,15 @@ const monthYear = dateObj.toLocaleDateString('en-US', {
         <div class="col-md-12">
           <div class="d-sm-flex align-items-center justify-content-between">
             <div class="nopixel-post-prev-next-left">
-              <a href="#"> <i class="ti-arrow-left"></i> Previous Post</a>
+              <a href={prevHref} class={hasPrev ? "" : "disabled"}
+                ><i class="ti-arrow-left"></i> Previous Post</a
+              >
             </div>
             <a href="/articles"><i class="ti-layout-grid3-alt"></i></a>
             <div class="nopixel-post-prev-next-right">
-              <a href="#">Next Post <i class="ti-arrow-right"></i></a>
+              <a href={nextHref} class={hasNext ? "" : "disabled"}
+                >Next Post <i class="ti-arrow-right"></i></a
+              >
             </div>
           </div>
         </div>
