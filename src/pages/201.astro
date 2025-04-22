@@ -125,7 +125,15 @@ import Layout from "../layouts/Layout.astro";
     }
   }
 </style>
-<div id="logo"><img src="/img/logo-dark.png" /></div>
+<div id="auth-box" style="max-width: 400px; margin: 100px auto; text-align: center; display: block;">
+    <h2>Restricted Access</h2>
+    <p>Please enter the password to access the form.</p>
+    <input type="password" id="auth-password" placeholder="Enter password" style="padding: 10px; width: 100%; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;" />
+    <button onclick="verifyAccess()" style="padding: 10px 20px; background-color: #284f6e; color: white; border: none; border-radius: 5px;">Submit</button>
+  </div>
+  
+<div id="protected-content" style="display:none;">
+    <div id="logo"><img src="/img/logo-dark.png" /></div>
 <form id="articleForm">
   <input name="title" placeholder="Title" required />
   <input name="imageUrl" placeholder="Image URL" required />
@@ -138,6 +146,7 @@ import Layout from "../layouts/Layout.astro";
     placeholder="Article in Markdown"></textarea>
   <button type="submit">Submit</button>
 </form>
+</div>
 <!-- <script is:inline>
     const form = document.getElementById('articleForm');
     const textarea = document.getElementById('markdown-content');
@@ -167,6 +176,26 @@ import Layout from "../layouts/Layout.astro";
   </script> -->
 
 <script is:inline>
+  async function verifyAccess() {
+    const password = document.getElementById('auth-password').value;
+
+    const response = await fetch('/api/authCheck', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      document.getElementById('auth-box').style.display = 'none';
+      document.getElementById('protected-content').style.display = 'block';
+    } else {
+      alert('❌ Incorrect password. Please try again.');
+    }
+  }
+
+
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("articleForm");
     const textarea = document.getElementById("markdown-content");
