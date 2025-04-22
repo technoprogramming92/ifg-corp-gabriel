@@ -7,6 +7,9 @@ const articles = await collection.find().sort({date: -1}).toArray();
 ---
 
 <Layout>
+	<Fragment slot="head">
+		<title>Articles | IFG</title>
+	  </Fragment>
 <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="img/blog-cover/blog-cover.webp">
     <div class="container">
       <div class="row">

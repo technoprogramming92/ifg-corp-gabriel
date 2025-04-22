@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Services from '../components/Services.astro';
+import Services1 from '../components/Services1.astro';
 ---
 
 <Layout>
+  <Fragment slot="head">
+    <title>Services | IFG</title>
+  </Fragment>
 <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4" data-background="img/services-cover.webp">
     <div class="container">
       <div class="row">
@@ -22,5 +25,5 @@ to Deliver Results That Matter
     </div>
   </div>
 
-  <Services/>
+  <Services1/>
 </Layout>
