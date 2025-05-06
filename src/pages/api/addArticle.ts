@@ -14,7 +14,7 @@ export async function POST({ request }: APIContext) {
     title: data.title,
       content: data.content,
       imageUrl: data.imageUrl,
-      date: data.date,
+      date: new Date(data.date),
       author: data.author,
       articleNumber: data.articleNumber,// Ensure it's stored as string
   });
