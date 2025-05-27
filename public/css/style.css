@@ -448,6 +448,20 @@ input[type="checkbox"] {
   -webkit-text-stroke: 1px #ccc;
   opacity: 0.8;
 }
+
+/* Grok generated */
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 36px; /* Reduced font size for smaller screens */
+    line-height: 1.3em; /* Slightly adjusted line height */
+    letter-spacing: 3px; /* Reduced letter spacing for better fit */
+    margin-bottom: 15px; /* Slightly smaller margin */
+  }
+  .section-title span {
+    -webkit-text-stroke: 0.8px #ccc; /* Slightly thinner stroke for smaller screens */
+    opacity: 0.9; /* Slightly higher opacity for clarity */
+  }
+}
 .section-subtitle {
   color: #284f6e;
   font-size: 14px;
