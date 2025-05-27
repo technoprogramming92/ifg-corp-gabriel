@@ -10,6 +10,17 @@
     font-size:35px !important;
   }
 }
+
+.o-hidden h1 span{
+    text-wrap: nowrap; 
+    font-weight:700; -webkit-text-stroke: 3px #ffffff;
+}
+
+@media (max-width: 767px) {
+  .o-hidden h1 span {
+    -webkit-text-stroke: 1px #ffffff; /* Reduced stroke width for mobile */
+  }
+}
 </style>
 <header class="header slider-fade">
     <div class="owl-theme">
@@ -23,7 +34,7 @@
                                 <h6 style="font-weight:500;">Where Financial Strategy Meets Execution</h6>
                                 <h1>
                                     EXCEPTIONAL
-                                    <span style="text-wrap: nowrap; font-weight:700; -webkit-text-stroke: 3px #ffffff;">ACCOUNTING FIRM</span></h1> 
+                                    <span>ACCOUNTING FIRM</span></h1> 
                                 <a href="/services" class="btn-curve btn-borderyellow"><span>Our Services</span></a>
                             </div>
                         </div>
