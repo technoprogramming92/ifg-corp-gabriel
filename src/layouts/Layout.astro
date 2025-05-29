@@ -81,6 +81,19 @@ const currentPath = Astro.url.pathname;
 	<script is:inline src="/js/jquery.magnific-popup.js"></script>
 	<script is:inline src="/js/YouTubePopUp.js"></script>
 	<script is:inline src="/js/custom.js"></script>
+	<script is:inline>
+// This will now work without TS error
+$('.owl-carousel').owlCarousel({
+    items: 1,
+    loop: false,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    nav: false,
+    autoHeight: true
+});
+	</script>
 	</body>
 </html>
 
