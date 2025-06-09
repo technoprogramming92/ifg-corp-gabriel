@@ -2704,6 +2704,12 @@ button.mfp-arrow {
   .nav-scroll .navbar-collapse .active {
     color: #284f6e !important;
   }
+
+  /* added by saumya */
+  .nav-scroll .navbar-collapse{
+    margin-top: 0px;;
+  }
+  /* ================= */
   .dropdown-menu {
     opacity: 1;
     visibility: visible;
